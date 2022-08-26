@@ -4,6 +4,7 @@ import ButtonToggler from './components/ButtonToggler';
 
 import { BookContextProvider } from './contexts/BookContextProvider';
 import { AuthContextProvider } from './contexts/AuthContextProvider';
+import { ThemeContextProvider } from './contexts/ThemeContextProvider';
 
 //! SEE THIS: Multiple contexts and reducers
 // https://codezup.com/how-to-combine-multiple-reducers-in-react-hooks-usereducer/
@@ -12,21 +13,23 @@ function App() {
   return (
     <div className="App">
 
-    <AuthContextProvider>
+    <ThemeContextProvider>
 
-      <Navbar/>
+      <AuthContextProvider>
 
-      <BookContextProvider>
+        <Navbar/>
 
-        <BookList/>
-        
-      </BookContextProvider>
+        <BookContextProvider>
 
-      <ButtonToggler/>
+          <BookList/>
 
-    </AuthContextProvider>
+        </BookContextProvider>
 
-      
+        <ButtonToggler/>
+
+      </AuthContextProvider>
+
+    </ThemeContextProvider>  
 
     </div>
   );
